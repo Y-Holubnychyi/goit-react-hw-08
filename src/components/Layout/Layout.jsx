@@ -4,6 +4,7 @@ import AppBar from "../AppBar/AppBar";
 import s from "./Layout.module.css";
 
 const Layout = () => {
+  console.log("Rendering Layout");
   return (
     <div>
       <AppBar />
