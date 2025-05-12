@@ -7,14 +7,14 @@ import {
 } from "../../redux/contacts/operations";
 import {
   selectContacts,
-  selectIsLoading,
+  selectLoading,
   selectError,
 } from "../../redux/contacts/selectors";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {

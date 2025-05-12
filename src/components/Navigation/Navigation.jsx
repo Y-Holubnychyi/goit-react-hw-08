@@ -1,35 +1,51 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import {
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from "../../redux/auth/selectors";
 import UserMenu from "../UserMenu/UserMenu";
-import css from "./Navigation.module.css";
+import s from "./Navigation.module.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   return (
-    <nav className={css.nav}>
-      <NavLink to="/" className={css.link}>
-        Home
-      </NavLink>
-      {isLoggedIn ? (
-        <>
-          <NavLink to="/contacts" className={css.link}>
-            Contacts
+    <AnimatePresence>
+      {!isRefreshing && (
+        <motion.nav
+          className={s.nav}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <NavLink to="/" className={s.link}>
+            Home
           </NavLink>
-          <UserMenu />
-        </>
-      ) : (
-        <>
-          <NavLink to="/register" className={css.link}>
-            Register
-          </NavLink>
-          <NavLink to="/login" className={css.link}>
-            Login
-          </NavLink>
-        </>
+
+          {isLoggedIn ? (
+            <>
+              <NavLink to="/contacts" className={s.link}>
+                Contacts
+              </NavLink>
+              <UserMenu />
+            </>
+          ) : (
+            <>
+              <NavLink to="/register" className={s.link}>
+                Register
+              </NavLink>
+              <NavLink to="/login" className={s.link}>
+                Login
+              </NavLink>
+            </>
+          )}
+        </motion.nav>
       )}
-    </nav>
+    </AnimatePresence>
   );
 };
 

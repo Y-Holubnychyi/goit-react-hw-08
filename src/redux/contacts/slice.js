@@ -8,6 +8,12 @@ const contactsSlice = createSlice({
     items: [],
     loading: false,
     error: null,
+    nameFilter: "", // Додаємо фільтр
+  },
+  reducers: {
+    setNameFilter(state, action) {
+      state.nameFilter = action.payload; // Оновлюємо фільтр
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -23,7 +29,6 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-
       .addCase(addContact.pending, (state) => {
         state.loading = true;
       })
@@ -36,7 +41,6 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-
       .addCase(deleteContact.pending, (state) => {
         state.loading = true;
       })
@@ -51,12 +55,13 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-
-      //Очищення контактів при logout
       .addCase(logout.fulfilled, (state) => {
         state.items = [];
       });
   },
 });
+
+export const { setNameFilter } = contactsSlice.actions;
+export const selectNameFilter = (state) => state.contacts.nameFilter;
 
 export default contactsSlice.reducer;
