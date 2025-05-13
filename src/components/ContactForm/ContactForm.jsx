@@ -2,8 +2,15 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contactsOps";
-import { selectContacts } from "../../redux/contactsSlice";
+import { selectContacts } from "../../redux/contacts/selectors";
 import s from "./ContactForm.module.css";
+
+const initialValues = {
+  name: "",
+  number: "",
+};
+
+const regex = /^(?=.*?[1-9])[0-9()-]+$/;
 
 const addProfileSchema = yup.object({
   name: yup
@@ -16,13 +23,8 @@ const addProfileSchema = yup.object({
     .required("phone is required")
     .min(3, "too short!")
     .max(50, "too long!")
-    .matches(/^(?=.*?[1-9])[0-9()-]+$/, "enter valid number"),
+    .matches(regex, "enter valid number"),
 });
-
-const initialValues = {
-  name: "",
-  number: "",
-};
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -31,11 +33,11 @@ const ContactForm = () => {
   const onAddProfile = (formData, actions) => {
     const isDuplicate = contacts.some(
       (contact) =>
-        contact.name.trim().toLowerCase() === formData.name.trim().toLowerCase()
+        contact.name.toLowerCase().trim() === formData.name.toLowerCase().trim()
     );
 
     if (isDuplicate) {
-      alert(`${formData.name} is already in contacts.`);
+      alert(`${formData.name} is already in contacts`);
       return;
     }
 

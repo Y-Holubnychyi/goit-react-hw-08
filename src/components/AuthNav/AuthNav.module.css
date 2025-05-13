@@ -1,0 +1,21 @@
+.activeLink {
+  color: white;
+}
+
+.link {
+  font-size: 30px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navWrapper {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.link:hover {
+  color: #ff096c; /* Колір для ховера */
+}

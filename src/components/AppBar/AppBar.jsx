@@ -1,5 +1,6 @@
 import Navigation from "../Navigation/Navigation";
 import AuthNav from "../AuthNav/AuthNav";
+import UserMenu from "../UserMenu/UserMenu";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import s from "./AppBar.module.css";
@@ -10,8 +11,7 @@ const AppBar = () => {
   return (
     <header className={s.header}>
       <Navigation />
-      {isLoggedIn ? null : <AuthNav />}{" "}
-      {/* Покажемо тільки AuthNav, якщо користувач не залогінений */}
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </header>
   );
 };

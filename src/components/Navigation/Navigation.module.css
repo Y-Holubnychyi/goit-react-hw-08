@@ -1,15 +1,22 @@
 .nav {
   display: flex;
-  align-items: center;
   gap: 20px;
 }
 
 .link {
   text-decoration: none;
   color: #333;
+  font-size: 16px;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.link.active {
-  color: #007bff;
+.activeLink {
+  color: #d50082; /* Червоний колір для активного посилання */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #ff096c; /* Колір для ховера */
 }

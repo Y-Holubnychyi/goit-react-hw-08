@@ -1,0 +1,53 @@
+.closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background-color: transparent;
+}
+.closeBtn:hover {
+  outline: none;
+}
+.closeBtn:focus {
+  outline: none;
+}
+
+.customOverlayStyles {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(58, 57, 57, 0.75);
+  border: none;
+  z-index: 10;
+}
+
+.customStyles {
+  background-color: #b9b7b7;
+  width: 300px;
+  height: 150px;
+  overflow: auto;
+  border-radius: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
+  color: black;
+}
+
+.btnWrapper {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalText {
+  font-size: 20px;
+}

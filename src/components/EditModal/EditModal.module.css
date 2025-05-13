@@ -1,0 +1,83 @@
+.closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background-color: transparent;
+}
+.closeBtn:hover {
+  outline: none;
+}
+.closeBtn:focus {
+  outline: none;
+}
+
+.customOverlayStyles {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(58, 57, 57, 0.75);
+  border: none;
+  z-index: 10;
+}
+
+.customStyles {
+  background-color: #b9b7b7;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  border-radius: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
+  color: black;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputTitle {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.addBtn {
+  width: 200px;
+  height: 50px;
+  align-self: center;
+  padding: 10px;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+}
+
+.inputArea {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 350px;
+  height: 20px;
+  padding: 5px;
+}

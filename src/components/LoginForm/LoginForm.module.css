@@ -1,0 +1,44 @@
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputTitle {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.addBtn {
+  width: 200px;
+  height: 50px;
+  align-self: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.errorMessage {
+  color: rgba(255, 0, 0, 0.952);
+  font-size: 12px;
+}
+
+.inputArea {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 350px;
+  height: 20px;
+  padding: 5px;
+}
