@@ -27,7 +27,7 @@ const ContactsPage = () => {
       {isLoading && <p className={s.loadingMessage}>Loading contacts...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
-      <ContactList />
+      {!isLoading && !error && <ContactList />}
     </div>
   );
 };

@@ -7,18 +7,18 @@ const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
   const contacts = useSelector((state) => state.contacts.items);
 
-  if (filteredContacts.length === 0 && contacts.length > 0) {
+  if (contacts.length === 0) {
     return (
       <p className={s.noContactsMessage}>
-        {"No contacts matching the query were found!"}
+        {"No contacts in your phonebook yet!"}
       </p>
     );
   }
 
-  if (filteredContacts.length === 0 && contacts.length === 0) {
+  if (filteredContacts.length === 0 && contacts.length > 0) {
     return (
       <p className={s.noContactsMessage}>
-        {"No contacts in your phonebook yet!"}
+        {"No contacts matching the query were found!"}
       </p>
     );
   }
