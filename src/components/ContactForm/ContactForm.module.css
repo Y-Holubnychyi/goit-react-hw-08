@@ -55,3 +55,9 @@
   font-size: 12px;
   margin-top: 4px;
 }
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}

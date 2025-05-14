@@ -5,14 +5,20 @@ import { selectFilteredContacts } from "../../redux/contacts/selectors";
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
+  const contacts = useSelector((state) => state.contacts.items);
 
-  if (filteredContacts.length === 0) {
+  if (filteredContacts.length === 0 && contacts.length > 0) {
     return (
-      <p className={s.message}>
-        {"No contacts" +
-          (filteredContacts.length === 0
-            ? " in your phonebook yet!"
-            : " matching the query were found!")}
+      <p className={s.noContactsMessage}>
+        {"No contacts matching the query were found!"}
+      </p>
+    );
+  }
+
+  if (filteredContacts.length === 0 && contacts.length === 0) {
+    return (
+      <p className={s.noContactsMessage}>
+        {"No contacts in your phonebook yet!"}
       </p>
     );
   }

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { login } from "../../redux/auth/operations";
 import { loginProfileSchema } from "../../util/schemas";
+import s from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -25,55 +26,44 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "400px", margin: "0 auto" }}>
-      <h2>Login</h2>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={loginProfileSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <div style={{ marginBottom: "10px" }}>
-              <label>Email</label>
-              <Field
-                type="email"
-                name="email"
-                required
-                style={{ width: "100%", padding: "8px", margin: "5px 0" }}
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                style={{ color: "red" }}
-              />
-            </div>
+    <div className={s.container}>
+      <div className={s.formWrapper}>
+        <h2 className={s.title}>Login</h2>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={loginProfileSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <label className={s.label}>Email</label>
+              <Field type="email" name="email" required className={s.input} />
+              <ErrorMessage name="email" component="div" className={s.error} />
 
-            <div style={{ marginBottom: "10px" }}>
-              <label>Password</label>
+              <label className={s.label}>Password</label>
               <Field
                 type="password"
                 name="password"
                 required
-                style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                className={s.input}
               />
               <ErrorMessage
                 name="password"
                 component="div"
-                style={{ color: "red" }}
+                className={s.error}
               />
-            </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              style={{ width: "100%", padding: "10px" }}
-            >
-              {isSubmitting ? "Logging in..." : "Login"}
-            </button>
-          </Form>
-        )}
-      </Formik>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={s.button}
+              >
+                {isSubmitting ? "Logging in..." : "Login"}
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };

@@ -1,12 +1,19 @@
 import React from "react";
+import s from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Welcome to the Phonebook App</h1>
-      <p>
-        Use the navigation links above to register, log in, or view your
-        contacts.
+    <div>
+      <h1 className={s.title}>Welcome to Your Smart Phonebook</h1>
+      <p className={s.subtitle}>
+        Stay organized, stay connected. Create your personal contact list in
+        seconds.
+      </p>
+      <p className={s.info}>
+        🔐 Register or log in to securely manage your contacts from any device.
+      </p>
+      <p className={s.info}>
+        📞 Add, search, and delete contacts — fast and easy.
       </p>
     </div>
   );

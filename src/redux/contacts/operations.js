@@ -27,7 +27,6 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-// Аналогічно для addContact та deleteContact:
 export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {

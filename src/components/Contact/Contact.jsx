@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
 import { FaUser, FaPhone } from "react-icons/fa";
+import { useState } from "react";
+import ModalWindow from "../ModalWindow/ModalWindow";
 import s from "./Contact.module.css";
 
 function Contact({ name, number, id }) {
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onDeleteProfile = () => {
-    dispatch(deleteContact(id));
+    setIsModalOpen(true);
   };
 
   return (
@@ -25,6 +27,13 @@ function Contact({ name, number, id }) {
       <button className={s.deleteButton} onClick={onDeleteProfile}>
         Delete
       </button>
+
+      <ModalWindow
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        id={id}
+        name={name}
+      />
     </div>
   );
 }

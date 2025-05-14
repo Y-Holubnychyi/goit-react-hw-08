@@ -1,0 +1,30 @@
+@keyframes bounceIn {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(30px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #2c2c2c;
+  animation: bounceIn 1s ease;
+}
+.loadingMessage {
+  font-size: 18px;
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}

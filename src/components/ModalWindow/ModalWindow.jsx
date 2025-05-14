@@ -1,14 +1,14 @@
 import Modal from "react-modal";
 import s from "./ModalWindow.module.css";
 import { useDispatch } from "react-redux";
-import { apiDeleteContacts } from "../../redux/contacts/operations";
+import { deleteContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 
-const ModalWindow = ({ isOpen, onClose, id }) => {
+const ModalWindow = ({ isOpen, onClose, id, name }) => {
   const dispatch = useDispatch();
 
   const onDeleteProfile = (profileId) => {
-    dispatch(apiDeleteContacts(profileId))
+    dispatch(deleteContact(profileId))
       .unwrap()
       .then(() => {
         toast.success("Contact deleted");
@@ -30,8 +30,13 @@ const ModalWindow = ({ isOpen, onClose, id }) => {
       <button onClick={onClose} type="button" className={s.closeBtn}>
         ❌
       </button>
+
       <div className={s.modalContent}>
-        <p className={s.modalText}>Are you sure?</p>
+        <p className={s.modalText}>
+          Are you sure you want to delete{" "}
+          <span className={s.contactNameHighlight}>"{name}"</span>?
+        </p>
+
         <div className={s.btnWrapper}>
           <button type="button" onClick={() => onDeleteProfile(id)}>
             Yes

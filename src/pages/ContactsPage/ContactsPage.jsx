@@ -6,6 +6,7 @@ import { selectLoading, selectError } from "../../redux/contacts/selectors";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import s from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,12 @@ const ContactsPage = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Your Contacts</h2>
+      <h2 className={s.title}>Your Contacts</h2>
 
       <ContactForm />
       <SearchBox />
 
-      {isLoading && <p>Loading contacts...</p>}
+      {isLoading && <p className={s.loadingMessage}>Loading contacts...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
       <ContactList />

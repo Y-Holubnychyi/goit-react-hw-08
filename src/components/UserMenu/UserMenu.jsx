@@ -16,7 +16,6 @@ const UserMenu = () => {
     dispatch(logout());
   };
 
-  // Функції для керування ховером та активним станом
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   const handleMouseDown = () => setIsActive(true);
