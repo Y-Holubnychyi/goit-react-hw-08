@@ -34,12 +34,12 @@ const ModalWindow = ({ isOpen, onClose, id, name }) => {
       <div className={s.modalContent}>
         <p className={s.modalText}>
           Are you sure you want to delete{" "}
-          <span className={s.contactNameHighlight}>"{name}"</span>?
+          <span className={s.contactNameHighlight}>"{name}"</span> ?
         </p>
 
         <div className={s.btnWrapper}>
           <button type="button" onClick={() => onDeleteProfile(id)}>
-            Yes
+            Yes 💀
           </button>
           <button type="button" onClick={onClose}>
             No

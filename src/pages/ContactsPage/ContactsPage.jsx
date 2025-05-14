@@ -18,7 +18,7 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className={s.appContainer}>
       <h2 className={s.title}>Your Contacts</h2>
 
       <ContactForm />
