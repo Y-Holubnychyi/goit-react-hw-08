@@ -4,6 +4,7 @@ import { logout } from "../../redux/auth/operations";
 import s from "./UserMenu.module.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const UserMenu = () => {
     >
       <p className={s.text}>Welcome, {name}!</p>
       <button
-        className={`${s.button} ${isHovered ? s.buttonHover : ""} ${
+        className={`${s.logoutBtn} ${isHovered ? s.buttonHover : ""} ${
           isActive ? s.buttonActive : ""
         }`}
         onClick={handleLogout}
@@ -39,7 +40,7 @@ const UserMenu = () => {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
       >
-        Logout
+        <FaSignOutAlt size={24} color="white" />
       </button>
     </motion.div>
   );
