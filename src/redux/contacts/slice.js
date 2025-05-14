@@ -8,13 +8,8 @@ const contactsSlice = createSlice({
     items: [],
     loading: false,
     error: null,
-    nameFilter: "", // Додаємо фільтр
   },
-  reducers: {
-    setNameFilter(state, action) {
-      state.nameFilter = action.payload; // Оновлюємо фільтр
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.pending, (state) => {
@@ -60,8 +55,5 @@ const contactsSlice = createSlice({
       });
   },
 });
-
-export const { setNameFilter } = contactsSlice.actions;
-export const selectNameFilter = (state) => state.contacts.nameFilter;
 
 export default contactsSlice.reducer;

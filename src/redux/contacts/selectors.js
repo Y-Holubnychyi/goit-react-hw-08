@@ -1,5 +1,5 @@
-import { createSelector } from "reselect"; // Додайте цей імпорт
-import { selectNameFilter } from "./slice";
+import { createSelector } from "reselect";
+import { selectNameFilter } from "../filters/selectors";
 
 export const selectContacts = (state) => state.contacts.items;
 export const selectLoading = (state) => state.contacts.loading;

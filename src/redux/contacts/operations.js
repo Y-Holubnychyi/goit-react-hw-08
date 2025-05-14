@@ -33,7 +33,6 @@ export const addContact = createAsyncThunk(
   async (contact, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.token;
-
     if (!token) {
       return thunkAPI.rejectWithValue("No token");
     }
