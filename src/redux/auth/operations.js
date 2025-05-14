@@ -70,21 +70,14 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (!persistedToken) {
-      console.error("No token available");
-      return thunkAPI.rejectWithValue("No token");
+      return thunkAPI.rejectWithValue("No token available for user refresh.");
     }
 
     try {
       setAuthHeader(persistedToken);
-      console.log(
-        "Sending request to /users/current with token:",
-        persistedToken
-      ); // Логування токену
       const res = await axios.get("/users/current");
-      console.log("Response from /users/current:", res); // Логування відповіді
       return res.data;
     } catch (error) {
-      console.error("Error while refreshing user:", error); // Логування помилки
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -8,7 +8,6 @@ import clsx from "clsx";
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  // Стиль для активних посилань
   const activeStyle = ({ isActive }) => clsx(s.link, isActive && s.activeLink);
 
   return (
@@ -28,17 +27,6 @@ const Navigation = () => {
           <NavLink to="/contacts" className={activeStyle}>
             Contacts
           </NavLink>
-        )}
-
-        {!isLoggedIn && (
-          <>
-            <NavLink to="/register" className={activeStyle}>
-              Register
-            </NavLink>
-            <NavLink to="/login" className={activeStyle}>
-              Login
-            </NavLink>
-          </>
         )}
       </motion.nav>
     </AnimatePresence>
