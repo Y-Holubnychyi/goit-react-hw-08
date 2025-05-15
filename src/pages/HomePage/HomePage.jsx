@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./HomePage.module.css";
+import JokeBox from "../../components/JokeBox/JokeBox";
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <p className={s.info}>
         📞 Add, search, and delete contacts — fast and easy.
       </p>
+      <JokeBox />
     </div>
   );
 };
