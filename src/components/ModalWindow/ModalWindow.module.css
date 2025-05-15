@@ -1,5 +1,5 @@
 .customOverlayStyles {
-  background-color: rgba(0, 0, 0, 0.5); /* напівпрозорий фон */
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -11,42 +11,12 @@
   z-index: 1000;
 }
 
-/* .customStyles {
-  background-color: #c3c1c1;
-  padding: 24px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  position: relative;
-  outline: none;
-  transition: all 0.3s ease;
-  font-family: sans-serif;
-} */
-
-/* .closeBtn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #555;
-} */
-
 .modalContent {
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: center;
 }
-
-/* .modalText {
-  font-size: 18px;
-  color: #333;
-  line-height: 1.4;
-} */
 
 .contactNameHighlight {
   font-weight: 600;
@@ -117,5 +87,5 @@
   font-size: 20px;
   cursor: pointer;
   color: #555;
-  z-index: 1100; /* Додаємо більший z-index, щоб кнопка була поверх інших елементів */
+  z-index: 1100;
 }

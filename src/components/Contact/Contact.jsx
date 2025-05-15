@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { FaUser, FaPhone } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import s from "./Contact.module.css";
@@ -24,8 +25,13 @@ function Contact({ name, number, id }) {
           <span className={s.contactNumber}>{number}</span>
         </div>
       </div>
-      <button className={s.deleteButton} onClick={onDeleteProfile}>
-        Delete
+
+      <button
+        className={s.iconButton}
+        onClick={onDeleteProfile}
+        title="Delete contact"
+      >
+        <MdDeleteForever size={22} />
       </button>
 
       <ModalWindow
