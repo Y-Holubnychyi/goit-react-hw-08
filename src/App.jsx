@@ -43,42 +43,29 @@ const App = () => {
             <Route
               path="register"
               element={
-                isLoggedIn ? (
-                  <Navigate to="/contacts" />
-                ) : (
-                  <RestrictedRoute
-                    element={<RegisterPage />}
-                    redirectTo="/contacts"
-                  />
-                )
+                <RestrictedRoute
+                  element={<RegisterPage />}
+                  redirectTo="/contacts"
+                />
               }
             />
             <Route
               path="login"
               element={
-                isLoggedIn ? (
-                  <Navigate to="/contacts" />
-                ) : (
-                  <RestrictedRoute
-                    element={<LoginPage />}
-                    redirectTo="/contacts"
-                  />
-                )
+                <RestrictedRoute
+                  element={<LoginPage />}
+                  redirectTo="/contacts"
+                />
               }
             />
+
             <Route
               path="contacts"
               element={
-                isLoggedIn ? (
-                  <PrivateRoute
-                    element={<ContactsPage />}
-                    redirectTo="/login"
-                  />
-                ) : (
-                  <Navigate to="/login" />
-                )
+                <PrivateRoute element={<ContactsPage />} redirectTo="/login" />
               }
             />
+
             <Route path="*" element={<HomePage />} />
           </Route>
         </Routes>

@@ -1,25 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://connections-api.goit.global";
-
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+const contactsInstance = axios.create({
+  baseURL: "https://connections-api.goit.global",
+});
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
-
+    const token = thunkAPI.getState().auth.token;
     if (!token) {
       return thunkAPI.rejectWithValue("No token");
     }
 
     try {
-      setAuthHeader(token);
-      const res = await axios.get("/contacts");
+      const res = await contactsInstance.get("/contacts", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -30,15 +27,15 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
+    const token = thunkAPI.getState().auth.token;
     if (!token) {
       return thunkAPI.rejectWithValue("No token");
     }
 
     try {
-      setAuthHeader(token);
-      const res = await axios.post("/contacts", contact);
+      const res = await contactsInstance.post("/contacts", contact, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -49,16 +46,15 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   "contacts/deleteContact",
   async (id, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
-
+    const token = thunkAPI.getState().auth.token;
     if (!token) {
       return thunkAPI.rejectWithValue("No token");
     }
 
     try {
-      setAuthHeader(token);
-      const res = await axios.delete(`/contacts/${id}`);
+      const res = await contactsInstance.delete(`/contacts/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
