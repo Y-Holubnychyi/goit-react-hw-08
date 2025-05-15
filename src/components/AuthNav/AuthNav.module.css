@@ -3,9 +3,9 @@
 }
 
 .link {
-  font-size: 30px;
+  font-size: 20px;
   text-decoration: none;
-  color: #333;
+  color: #52c4e7;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -17,5 +17,5 @@
 }
 
 .link:hover {
-  color: #ff096c; /* Колір для ховера */
+  color: #faf749;
 }

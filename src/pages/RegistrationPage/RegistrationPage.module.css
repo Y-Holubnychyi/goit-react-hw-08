@@ -1,9 +1,8 @@
 .pageWrapper {
-  padding: 30px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3f4f6;
   min-height: 100vh;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .formTitle {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
   text-align: center;
   color: #333;
