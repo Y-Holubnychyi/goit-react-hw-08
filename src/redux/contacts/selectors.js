@@ -10,9 +10,14 @@ export const selectFilteredContacts = createSelector(
   (contacts, filter) => {
     const normalizedFilter = filter.toLowerCase();
 
-    return contacts.filter(
+    const visible = contacts.filter(
       ({ name, number }) =>
         name.toLowerCase().includes(normalizedFilter) || number.includes(filter)
     );
+
+    return {
+      original: contacts,
+      visible,
+    };
   }
 );

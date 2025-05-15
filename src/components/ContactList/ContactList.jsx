@@ -4,28 +4,25 @@ import s from "./ContactList.module.css";
 import { selectFilteredContacts } from "../../redux/contacts/selectors";
 
 const ContactList = () => {
-  const filteredContacts = useSelector(selectFilteredContacts);
-  const contacts = useSelector((state) => state.contacts.items);
+  const { original, visible } = useSelector(selectFilteredContacts);
 
-  if (contacts.length === 0) {
+  if (original.length === 0) {
     return (
-      <p className={s.noContactsMessage}>
-        {"No contacts in your phonebook yet!"}
-      </p>
+      <p className={s.noContactsMessage}>No contacts in your phonebook yet!</p>
     );
   }
 
-  if (filteredContacts.length === 0 && contacts.length > 0) {
+  if (visible.length === 0) {
     return (
       <p className={s.noContactsMessage}>
-        {"No contacts matching the query were found!"}
+        No contacts matching the query were found!
       </p>
     );
   }
 
   return (
     <ul className={s.contactList}>
-      {filteredContacts.map(({ id, name, number }) => (
+      {visible.map(({ id, name, number }) => (
         <li key={id} className={s.contactItem}>
           <Contact id={id} name={name} number={number} />
         </li>

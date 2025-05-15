@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing, selectIsLoggedIn } from "./redux/auth/selectors";
+import { Toaster } from "react-hot-toast";
+import { toastOptions } from "./util/toastStyle";
 import Layout from "./components/Layout/Layout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
-import { Toaster } from "react-hot-toast";
-import { toastOptions } from "./util/toastStyle";
+import Loader from "./components/Loader/Loader";
 import "./App.css";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -26,13 +27,7 @@ const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  if (isRefreshing) {
-    return (
-      <div style={{ padding: "20px", textAlign: "center" }}>
-        <b>Loading user data...</b>
-      </div>
-    );
-  }
+  if (isRefreshing) return <Loader />;
 
   return (
     <>

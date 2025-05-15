@@ -1,7 +1,7 @@
 import s from "./Loader.module.css";
 
-const Loader = () => {
-  return <div className={s.loader}>Loading contacts...</div>;
+const Loader = ({ text = "Loading..." }) => {
+  return <div className={s.loader}>{text}</div>;
 };
 
 export default Loader;
